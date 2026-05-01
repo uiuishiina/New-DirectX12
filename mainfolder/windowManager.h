@@ -1,0 +1,43 @@
+#pragma once
+#include<memory>
+#include<vector>
+
+//	前方宣言
+class windowBase;
+class windowClassRegistry;
+
+struct HWND__;
+using HWND = HWND__*;
+
+struct HINSTANCE__;
+using HINSTANCE = HINSTANCE__*;
+
+class windowManager final
+{
+	std::unique_ptr<windowClassRegistry> registry{};
+
+	std::unique_ptr<windowBase>		main_window{};
+	std::vector<std::unique_ptr<windowBase>>	sub_window{};
+
+	bool initalize();
+public:
+	windowManager();
+	~windowManager();
+
+	windowManager(const windowManager&) = delete;
+	windowManager& operator= (const windowManager&) = delete;
+	windowManager(const windowManager&&) = delete;
+	windowManager& operator= (const windowManager&&) = delete;
+
+	[[nodiscard]] bool create_main_window(HINSTANCE hInstance, const uint16_t& width, const uint16_t height);
+
+	[[nodiscard]] windowBase* get_mainwindow()const noexcept;
+
+	[[nodiscard]] bool create_sub_window(HINSTANCE hInstance, const uint16_t& width, const uint16_t height);
+
+	[[nodiscard]] windowBase* get_subwindow(size_t index)const noexcept;
+
+	[[nodiscard]] bool message_loop();
+
+	[[nodiscard]] windowClassRegistry* get_registry()const noexcept;
+};
