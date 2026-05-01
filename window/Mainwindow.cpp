@@ -47,6 +47,8 @@ LRESULT Mainwindow::window_proc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lPara
 		return false;
 	}
 
+	window_size_ = { width, height };
+
 	//	ウィンドウ表示
 	ShowWindow(hwnd_, SW_SHOW);
 

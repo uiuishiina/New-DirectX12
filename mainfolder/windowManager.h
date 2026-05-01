@@ -15,11 +15,8 @@ using HINSTANCE = HINSTANCE__*;
 class windowManager final
 {
 	std::unique_ptr<windowClassRegistry> registry{};
-
 	std::unique_ptr<windowBase>		main_window{};
 	std::vector<std::unique_ptr<windowBase>>	sub_window{};
-
-	bool initalize();
 public:
 	windowManager();
 	~windowManager();
@@ -28,6 +25,8 @@ public:
 	windowManager& operator= (const windowManager&) = delete;
 	windowManager(const windowManager&&) = delete;
 	windowManager& operator= (const windowManager&&) = delete;
+
+	[[nodiscard]] bool initalize();
 
 	[[nodiscard]] bool create_main_window(HINSTANCE hInstance, const uint16_t& width, const uint16_t height);
 

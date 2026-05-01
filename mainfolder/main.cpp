@@ -1,12 +1,12 @@
 #define WIN32_LEAN_AND_MEAN
 #include<Windows.h>
-#include"windowManager.h"
+#include"Application.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int) {
-	windowManager windowmanager;
-	windowmanager.create_main_window(hInstance, 1280, 720);
-	while (windowmanager.message_loop()) {
-
+	Application App;
+	if (!App.initalize(hInstance)) {
+		return -1;
 	}
+	App.run_App();
 	return 0;
 }

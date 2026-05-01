@@ -5,9 +5,7 @@
 #include"../window/Subwindow.h"
 #include"windowManager.h"
 
-windowManager::windowManager() {
-	initalize();
-}
+windowManager::windowManager() = default;
 windowManager::~windowManager() = default;
 
 #define CHECK(expr) \
@@ -16,7 +14,7 @@ windowManager::~windowManager() = default;
         return false; \
     }
 
-bool windowManager::initalize() {
+[[nodiscard]] bool windowManager::initalize() {
 	registry = std::make_unique<windowClassRegistry>();
 
 	return true;

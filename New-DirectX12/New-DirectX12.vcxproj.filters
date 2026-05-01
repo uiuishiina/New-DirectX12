@@ -28,6 +28,18 @@
     <Filter Include="Debug\Log">
       <UniqueIdentifier>{b4dba59f-722f-4b38-9e85-ce9a41d6cc8e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="renderer">
+      <UniqueIdentifier>{147eb867-3040-44b5-96bb-f4d839985312}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="renderer\core">
+      <UniqueIdentifier>{c158ca3a-a702-44c5-81f2-095a217c3a7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="renderer\base">
+      <UniqueIdentifier>{1b5fc9b5-fcf8-4304-b9ef-fd09d3a6790d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="renderer\peripheral">
+      <UniqueIdentifier>{c8d893b7-583d-41fb-ada3-614b4f1aee2b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\window\window.h">
@@ -75,6 +87,45 @@
     <ClInclude Include="..\window\windowClassRegistry.h">
       <Filter>window</Filter>
     </ClInclude>
+    <ClInclude Include="..\mainfolder\Application.h">
+      <Filter>mainfolder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\renderer\core\RendererCore.h">
+      <Filter>renderer\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\renderer\core\DXGI.h">
+      <Filter>renderer\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\renderer\core\Device.h">
+      <Filter>renderer\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\mainfolder\RendererManager.h">
+      <Filter>mainfolder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\renderer\core\CommandQueue.h">
+      <Filter>renderer\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\renderer\core\Fence.h">
+      <Filter>renderer\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\renderer\base\DescriptorHeap.h">
+      <Filter>renderer\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\renderer\peripheral\CommandAllocator.h">
+      <Filter>renderer\peripheral</Filter>
+    </ClInclude>
+    <ClInclude Include="..\renderer\peripheral\CommandList.h">
+      <Filter>renderer\peripheral</Filter>
+    </ClInclude>
+    <ClInclude Include="..\renderer\peripheral\SwapChain.h">
+      <Filter>renderer\peripheral</Filter>
+    </ClInclude>
+    <ClInclude Include="..\renderer\peripheral\RenderTarget.h">
+      <Filter>renderer\peripheral</Filter>
+    </ClInclude>
+    <ClInclude Include="..\renderer\peripheral\RendererPeripheral.h">
+      <Filter>renderer\peripheral</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\window\window.cpp">
@@ -100,6 +151,45 @@
     </ClCompile>
     <ClCompile Include="..\window\windowClassRegistry.cpp">
       <Filter>window</Filter>
+    </ClCompile>
+    <ClCompile Include="..\mainfolder\Application.cpp">
+      <Filter>mainfolder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\renderer\core\DXGI.cpp">
+      <Filter>renderer\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\renderer\core\Device.cpp">
+      <Filter>renderer\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\renderer\core\RendererCore.cpp">
+      <Filter>renderer\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\mainfolder\RendererManager.cpp">
+      <Filter>mainfolder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\renderer\core\CommandQueue.cpp">
+      <Filter>renderer\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\renderer\core\Fence.cpp">
+      <Filter>renderer\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\renderer\base\DescriptorHeap.cpp">
+      <Filter>renderer\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\renderer\peripheral\CommandAllocator.cpp">
+      <Filter>renderer\peripheral</Filter>
+    </ClCompile>
+    <ClCompile Include="..\renderer\peripheral\CommandList.cpp">
+      <Filter>renderer\peripheral</Filter>
+    </ClCompile>
+    <ClCompile Include="..\renderer\peripheral\SwapChian.cpp">
+      <Filter>renderer\peripheral</Filter>
+    </ClCompile>
+    <ClCompile Include="..\renderer\peripheral\RenderTarger.cpp">
+      <Filter>renderer\peripheral</Filter>
+    </ClCompile>
+    <ClCompile Include="..\renderer\peripheral\RendererPeripheral.cpp">
+      <Filter>renderer\peripheral</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

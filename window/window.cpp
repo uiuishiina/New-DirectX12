@@ -27,6 +27,5 @@ LRESULT CALLBACK windowBase::StaticWindowProc(HWND hwnd, UINT msg, WPARAM wParam
 
 [[nodiscard]] std::pair<uint16_t, uint16_t> windowBase::get_size()const noexcept {
 	ASSERT(hwnd_);
-	ASSERT(nullptr);
 	return window_size_;
 }
