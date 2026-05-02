@@ -28,7 +28,7 @@ RendererManager::~RendererManager() = default;
 [[nodiscard]] bool RendererManager::create_sub_peripheral(windowBase* window, windowID id) {
 
 	auto sub = std::make_unique<RendererPeripheral>();
-	if (!sub->initalize(renderer_core.get(), window, 3)) {
+	if (!sub->initalize(renderer_core.get(), window, 2)) {
 		return false;
 	}
 	sub_peripherals.emplace(id,std::move(sub));

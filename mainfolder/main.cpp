@@ -10,6 +10,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int) {
 	if (!App.create_sub(hInstance)) {
 		return -1;
 	}
+	if (!App.create_sub(hInstance)) {
+		return -1;
+	}
 	App.run_App();
 	return 0;
 }

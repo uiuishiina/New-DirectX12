@@ -50,6 +50,8 @@ void LifetimeManager::update() {
 	for (auto& p : unit_map) {
 		p.second->update();
 	}
+
+	ondestroy_vec.clear();
 }
 
 void LifetimeManager::end() {
