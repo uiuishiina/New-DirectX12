@@ -26,5 +26,8 @@ RendererManager::~RendererManager() = default;
 }
 
 void RendererManager::update() {
-
+	renderer_peripheral->update();
+}
+void RendererManager::end() {
+	
 }

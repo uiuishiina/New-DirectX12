@@ -44,5 +44,5 @@ void Application::run_App() {
 }
 
 void Application::end_App() {
-
+	renderer_manager->end();
 }

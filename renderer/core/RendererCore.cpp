@@ -55,3 +55,8 @@ RendererCore::~RendererCore() = default;
     ASSERT(queue_);
     return queue_.get();
 }
+
+[[nodiscard]] Fence* RendererCore::get_fence()const noexcept {
+    ASSERT(fence_);
+    return fence_.get();
+}

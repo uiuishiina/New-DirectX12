@@ -1,10 +1,13 @@
 #pragma once
 #include<memory>
+#include<cstdint>
+#include<vector>
 
 class RendererCore;
 class CommandAllocator;
 class CommandList;
 class SwapChain;
+class DescriptorHeap;
 class RenderTarget;
 
 struct HWND__;
@@ -18,11 +21,13 @@ struct windowContext{
 class RendererPeripheral final
 {
 	RendererCore*	renderer_core{};
-
 	std::unique_ptr<CommandAllocator>	allocator_{};
 	std::unique_ptr<CommandList>		list_{};
 	std::unique_ptr<SwapChain>			swapchain_{};
+	std::unique_ptr<DescriptorHeap>		rtv_heap_{};
 	std::unique_ptr<RenderTarget>		render_target_{};
+
+	std::vector<uint64_t> frameFenceValue_;
 
 	windowContext	window_context{};
 public:
@@ -35,4 +40,8 @@ public:
 	RendererPeripheral& operator=(const RendererPeripheral&&) = delete;
 
 	[[nodiscard]] bool initalize(RendererCore* core, const windowContext& context,const int& buffercount);
+	
+	void update();
+
+	void end();
 };

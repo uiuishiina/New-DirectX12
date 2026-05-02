@@ -28,4 +28,6 @@ public:
 	[[nodiscard]] Device* get_Device()const noexcept;
 
 	[[nodiscard]] CommandQueue* get_CommandQueue()const noexcept;
+
+	[[nodiscard]] Fence* get_fence()const noexcept;
 };

@@ -24,4 +24,6 @@ public:
 	[[nodiscard]] bool create_peripheral(windowContext& contest);
 
 	void update();
+
+	void end();
 };
