@@ -82,6 +82,6 @@ void windowManager::ondestroy_window(windowID id) {
 	if (it == sub_window.end()) {
 		return;
 	}
-
+	LOG_INFO(LOG_HEADER(Message, "ondestroy_window"));
 	sub_window.erase(it);
 }

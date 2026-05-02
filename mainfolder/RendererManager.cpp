@@ -53,5 +53,6 @@ void RendererManager::ondestroy_sub_peripheral(windowID id) {
 	if (it == sub_peripherals.end()) {
 		return;
 	}
+	it->second->end();
 	sub_peripherals.erase(it);
 }

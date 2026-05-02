@@ -55,5 +55,8 @@ void LifetimeManager::update() {
 }
 
 void LifetimeManager::end() {
-
+	for (auto& p : unit_map) {
+		auto id = p.first;
+		app_->ondestroy_window(id);
+	}
 }

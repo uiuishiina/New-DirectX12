@@ -16,6 +16,4 @@ public:
 	[[nodiscard]] RendererPeripheral* get_renderer()const noexcept;
 
 	void update();
-
-	void end();
 };
