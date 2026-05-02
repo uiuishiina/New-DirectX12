@@ -1,5 +1,6 @@
 #include"Mainwindow.h"
 #include"../mainfolder/windowManager.h"
+#include"../mainfolder/LifetimeManager.h"
 #include"windowClassRegistry.h"
 #include"../Debug/Debug.h"
 

@@ -4,6 +4,7 @@
 #include"../window/Mainwindow.h"
 #include"../window/Subwindow.h"
 #include"windowManager.h"
+#include"LifetimeManager.h"
 
 windowManager::windowManager() = default;
 windowManager::~windowManager() = default;
@@ -14,9 +15,9 @@ windowManager::~windowManager() = default;
         return false; \
     }
 
-[[nodiscard]] bool windowManager::initalize() {
+[[nodiscard]] bool windowManager::initalize(LifetimeManager * life) {
 	registry = std::make_unique<windowClassRegistry>();
-
+	life_ = life;
 	return true;
 }
 
@@ -24,7 +25,7 @@ windowManager::~windowManager() = default;
 
 [[nodiscard]] bool windowManager::create_main_window(HINSTANCE hInstance, const uint16_t& width, const uint16_t height) {
 	
-	main_window = std::make_unique<Mainwindow>(this);
+	main_window = std::make_unique<Mainwindow>(this, life_);
 	CHECK(main_window->create_window(hInstance, width, height));
 
 	return true;
@@ -37,22 +38,20 @@ windowManager::~windowManager() = default;
 
 //---------------------------------------------------------------------------------------------------
 
-[[nodiscard]] bool windowManager::create_sub_window(HINSTANCE hInstance, const uint16_t& width, const uint16_t height) {
-	
-	for (int i = 0; i < 2; i++) {
-		std::unique_ptr sub = std::make_unique<Subwindow>(this);
-		CHECK(sub->create_window(hInstance, width, height));
+[[nodiscard]] bool windowManager::create_sub_window(HINSTANCE hInstance, windowID id, const uint16_t& width, const uint16_t height) {
 
-		sub_window.emplace_back(std::move(sub));
-	}
+	std::unique_ptr sub = std::make_unique<Subwindow>(this, life_);
+	CHECK(sub->create_window(hInstance, width, height));
+	sub_window.emplace(id,std::move(sub));
 
 	return true;
 }
 
-[[nodiscard]] windowBase* windowManager::get_subwindow(size_t index)const noexcept {
-	ASSERT(sub_window.size() < index);
-	ASSERT(sub_window[index]);
-	return sub_window[index].get();
+[[nodiscard]] windowBase* windowManager::get_subwindow(windowID id)const noexcept {
+	ASSERT(!sub_window.empty());
+	auto it = sub_window.find(id);
+	ASSERT(it != sub_window.end());
+	return it->second.get();
 }
 
 //---------------------------------------------------------------------------------------------------
@@ -75,4 +74,14 @@ windowManager::~windowManager() = default;
 [[nodiscard]] windowClassRegistry* windowManager::get_registry()const noexcept {
 	ASSERT(registry);
 	return registry.get();
+}
+
+void windowManager::ondestroy_window(windowID id) {
+
+	auto it = sub_window.find(id);
+	if (it == sub_window.end()) {
+		return;
+	}
+
+	sub_window.erase(it);
 }

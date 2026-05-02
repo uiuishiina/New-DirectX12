@@ -15,19 +15,43 @@ RendererManager::~RendererManager() = default;
 	return true;
 }
 
-[[nodiscard]] bool RendererManager::create_peripheral(windowContext& contest) {
+[[nodiscard]] bool RendererManager::create_main_peripheral(windowBase* window) {
 
-	renderer_peripheral = std::make_unique<RendererPeripheral>();
-	if (!renderer_peripheral->initalize(renderer_core.get(), contest, 3)) {
+	main_peripheral = std::make_unique<RendererPeripheral>();
+	if (!main_peripheral->initalize(renderer_core.get(), window, 3)) {
 		return false;
 	}
 
 	return true;
 }
 
-void RendererManager::update() {
-	renderer_peripheral->update();
+[[nodiscard]] bool RendererManager::create_sub_peripheral(windowBase* window, windowID id) {
+
+	auto sub = std::make_unique<RendererPeripheral>();
+	if (!sub->initalize(renderer_core.get(), window, 3)) {
+		return false;
+	}
+	sub_peripherals.emplace(id,std::move(sub));
+
+	return true;
 }
-void RendererManager::end() {
-	
+
+[[nodiscard]] RendererPeripheral* RendererManager::get_main_peripheral() {
+	ASSERT(main_peripheral);
+	return main_peripheral.get();
+}
+
+[[nodiscard]] RendererPeripheral* RendererManager::get_sub_peripheral(windowID id) {
+	ASSERT(!sub_peripherals.empty());
+	auto it = sub_peripherals.find(id);
+	ASSERT(it != sub_peripherals.end());
+	return it->second.get();
+}
+
+void RendererManager::ondestroy_sub_peripheral(windowID id) {
+	auto it = sub_peripherals.find(id);
+	if (it == sub_peripherals.end()) {
+		return;
+	}
+	sub_peripherals.erase(it);
 }

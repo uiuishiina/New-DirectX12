@@ -5,6 +5,7 @@
 #include<memory>
 
 class windowManager;
+class LifetimeManager;
 
 class windowBase
 {
@@ -12,13 +13,16 @@ protected:
 	HWND hwnd_{};
 	std::pair<uint16_t, uint16_t> window_size_{};
 	windowManager* window_manager = nullptr;
+	LifetimeManager* lifetime_manager = nullptr;
 	
 	static LRESULT CALLBACK StaticWindowProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 	virtual LRESULT window_proc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) = 0;
+
+	virtual void ondestory_window(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {};
 public:
 	windowBase() = delete;
-	explicit windowBase(windowManager* manager) :window_manager(manager) {};
+	explicit windowBase(windowManager* window, LifetimeManager* life) :window_manager(window), lifetime_manager(life){};
 	virtual ~windowBase() = default;
 
 	windowBase(const windowBase&) = delete;

@@ -10,6 +10,8 @@
 #include"../core/CommandQueue.h"
 #include"../core/Fence.h"
 
+#include"../../window/window.h"
+
 #include"../core/RendererCore.h"
 #include"RendererPeripheral.h"
 #include"../../Debug/Debug.h"
@@ -37,15 +39,19 @@ namespace {
 }
 
 RendererPeripheral::RendererPeripheral() = default;
-RendererPeripheral::~RendererPeripheral() = default;
+RendererPeripheral::~RendererPeripheral() {
+	LOG_INFO(LOG_HEADER(Message, "~RendererPeripheral()"),LOG_VALUE(frameFenceValue_[0]));
+}
 
 //---------------------------------------------------------------------------------------------------
 
-[[nodiscard]] bool RendererPeripheral::initalize(RendererCore* core, const windowContext& context, const int& buffercount) {
+[[nodiscard]] bool RendererPeripheral::initalize(RendererCore* core, windowBase* window, const int& buffercount) {
 
     renderer_core = core;
-    auto device = renderer_core->get_Device()->get_device();
 
+    auto device = renderer_core->get_Device()->get_device();
+	const auto [w, h] = window->get_size();
+	const auto hwnd = window->get_hwnd();
 
     allocator_ = std::make_unique<CommandAllocator>();
     CHECK(allocator_->create_command_allocator(device, buffercount, command_type));
@@ -56,9 +62,8 @@ RendererPeripheral::~RendererPeripheral() = default;
 
 
     swapchain_ = std::make_unique<SwapChain>();
-    const auto [w, h] = context.size;
     CHECK(swapchain_->create_swapchain(renderer_core->get_DXGI()->get_factory(), renderer_core->get_CommandQueue()->get_queue(),
-        context.hwnd, w, h, buffercount));
+		hwnd, w, h, buffercount));
 
     rtv_heap_ = std::make_unique<DescriptorHeap>();
     CHECK(rtv_heap_->create_heap(device, D3D12_DESCRIPTOR_HEAP_TYPE_RTV, 3, false));

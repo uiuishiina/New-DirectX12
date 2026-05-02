@@ -16,6 +16,7 @@
 	do { \
 	if (!Debug::GetInstance().GetAssert().policy_check(expr)) { \
 		LOG_ERROR(LOG_CONTEXT(), LOG_VALUE(expr), LOG_HEADER(Message,#expr)); \
+		std::abort();\
 	} \
 } while(0)
 

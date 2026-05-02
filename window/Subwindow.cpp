@@ -1,5 +1,6 @@
 #include"Subwindow.h"
 #include"../mainfolder/windowManager.h"
+#include"../mainfolder/LifetimeManager.h"
 #include"windowClassRegistry.h"
 #include"../Debug/Debug.h"
 
@@ -13,11 +14,8 @@ LRESULT Subwindow::window_proc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam
 		DestroyWindow(hwnd);
 		return 0;
 	case WM_DESTROY:
-	{
-		auto self = (Subwindow*)GetWindowLongPtr(hwnd, GWLP_USERDATA);
-		self->hwnd_ = nullptr;
+		ondestory_window(hwnd, msg, wParam, lParam);
 		return 0;
-	}
 	default:
 		return DefWindowProc(hwnd, msg, wParam, lParam);
 	}
@@ -56,4 +54,10 @@ LRESULT Subwindow::window_proc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam
 	ShowWindow(hwnd_, SW_SHOW);
 
 	return true;
+}
+
+void Subwindow::ondestory_window(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
+	auto self = (Subwindow*)GetWindowLongPtr(hwnd, GWLP_USERDATA);
+	lifetime_manager->ondestroy_unit(self->hwnd_);
+	self->hwnd_ = nullptr;
 }

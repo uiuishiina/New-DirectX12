@@ -106,6 +106,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -121,6 +122,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -139,7 +141,10 @@
     <ClInclude Include="..\Debug\Log\Log_pipline.h" />
     <ClInclude Include="..\Debug\Log\Log_Struct_Parts.h" />
     <ClInclude Include="..\mainfolder\Application.h" />
+    <ClInclude Include="..\mainfolder\ID.h" />
+    <ClInclude Include="..\mainfolder\LifetimeManager.h" />
     <ClInclude Include="..\mainfolder\RendererManager.h" />
+    <ClInclude Include="..\mainfolder\RenderUnit.h" />
     <ClInclude Include="..\mainfolder\windowManager.h" />
     <ClInclude Include="..\renderer\base\DescriptorHeap.h" />
     <ClInclude Include="..\renderer\core\CommandQueue.h" />
@@ -161,8 +166,10 @@
     <ClCompile Include="..\Debug\Log\Console_Logger.cpp" />
     <ClCompile Include="..\Debug\Log\DebugWIndow_Logger.cpp" />
     <ClCompile Include="..\mainfolder\Application.cpp" />
+    <ClCompile Include="..\mainfolder\LifetimeManager.cpp" />
     <ClCompile Include="..\mainfolder\main.cpp" />
     <ClCompile Include="..\mainfolder\RendererManager.cpp" />
+    <ClCompile Include="..\mainfolder\RendererUnit.cpp" />
     <ClCompile Include="..\mainfolder\windowManager.cpp" />
     <ClCompile Include="..\renderer\base\DescriptorHeap.cpp" />
     <ClCompile Include="..\renderer\core\CommandQueue.cpp" />

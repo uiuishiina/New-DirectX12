@@ -126,6 +126,15 @@
     <ClInclude Include="..\renderer\peripheral\RendererPeripheral.h">
       <Filter>renderer\peripheral</Filter>
     </ClInclude>
+    <ClInclude Include="..\mainfolder\RenderUnit.h">
+      <Filter>mainfolder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\mainfolder\ID.h">
+      <Filter>mainfolder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\mainfolder\LifetimeManager.h">
+      <Filter>mainfolder</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\window\window.cpp">
@@ -190,6 +199,12 @@
     </ClCompile>
     <ClCompile Include="..\renderer\peripheral\RendererPeripheral.cpp">
       <Filter>renderer\peripheral</Filter>
+    </ClCompile>
+    <ClCompile Include="..\mainfolder\RendererUnit.cpp">
+      <Filter>mainfolder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\mainfolder\LifetimeManager.cpp">
+      <Filter>mainfolder</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

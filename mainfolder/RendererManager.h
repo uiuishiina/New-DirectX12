@@ -1,15 +1,17 @@
 #pragma once
 #include"../renderer/core/RendererCore.h"
 #include"../renderer/peripheral/RendererPeripheral.h"
+#include"ID.h"
 #include<memory>
+#include<unordered_map>
 
-//class RendererCore;
-//class RendererPeripheral;
+class windowBase;
 
 class RendererManager final
 {
 	std::unique_ptr<RendererCore> renderer_core{};
-	std::unique_ptr<RendererPeripheral> renderer_peripheral{};
+	std::unique_ptr<RendererPeripheral> main_peripheral{};
+	std::unordered_map<windowID,std::unique_ptr<RendererPeripheral>> sub_peripherals{};
 public:
 	RendererManager();
 	~RendererManager();
@@ -21,9 +23,13 @@ public:
 
 	[[nodiscard]] bool initalize();
 
-	[[nodiscard]] bool create_peripheral(windowContext& contest);
+	[[nodiscard]] bool create_main_peripheral(windowBase* window);
 
-	void update();
+	[[nodiscard]] bool create_sub_peripheral(windowBase* window, windowID id);
 
-	void end();
+	[[nodiscard]] RendererPeripheral* get_main_peripheral();
+
+	[[nodiscard]] RendererPeripheral* get_sub_peripheral(windowID id);
+
+	void ondestroy_sub_peripheral(windowID id);
 };

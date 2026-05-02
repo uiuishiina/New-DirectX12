@@ -4,9 +4,11 @@
 class Subwindow final : public windowBase
 {
 	LRESULT window_proc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) override;
+
+	void ondestory_window(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)override;
 public:
 	Subwindow() = delete;
-	Subwindow(windowManager* manager) :windowBase(manager) {};
+	Subwindow(windowManager* manager, LifetimeManager* life) :windowBase(manager,life) {};
 	~Subwindow() = default;
 
 	Subwindow(const Subwindow&) = delete;
