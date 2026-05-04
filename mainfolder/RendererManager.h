@@ -1,6 +1,7 @@
 #pragma once
 #include"../renderer/core/RendererCore.h"
-#include"../renderer/peripheral/RendererPeripheral.h"
+#include"../mainfolder/peripheral/RendererPeripheral.h"
+#include"../mainfolder/peripheral/Peripheral_polygon.h"
 #include"ID.h"
 #include<memory>
 #include<unordered_map>

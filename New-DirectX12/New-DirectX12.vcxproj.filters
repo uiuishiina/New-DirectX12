@@ -40,6 +40,9 @@
     <Filter Include="renderer\peripheral">
       <UniqueIdentifier>{c8d893b7-583d-41fb-ada3-614b4f1aee2b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="mainfolder\peripheral">
+      <UniqueIdentifier>{43809536-f11c-433e-9bc9-bb1db6b714a2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\window\window.h">
@@ -123,9 +126,6 @@
     <ClInclude Include="..\renderer\peripheral\RenderTarget.h">
       <Filter>renderer\peripheral</Filter>
     </ClInclude>
-    <ClInclude Include="..\renderer\peripheral\RendererPeripheral.h">
-      <Filter>renderer\peripheral</Filter>
-    </ClInclude>
     <ClInclude Include="..\mainfolder\RenderUnit.h">
       <Filter>mainfolder</Filter>
     </ClInclude>
@@ -134,6 +134,12 @@
     </ClInclude>
     <ClInclude Include="..\mainfolder\LifetimeManager.h">
       <Filter>mainfolder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\mainfolder\peripheral\RendererPeripheral.h">
+      <Filter>mainfolder\peripheral</Filter>
+    </ClInclude>
+    <ClInclude Include="..\mainfolder\peripheral\Peripheral_polygon.h">
+      <Filter>mainfolder\peripheral</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -197,14 +203,17 @@
     <ClCompile Include="..\renderer\peripheral\RenderTarger.cpp">
       <Filter>renderer\peripheral</Filter>
     </ClCompile>
-    <ClCompile Include="..\renderer\peripheral\RendererPeripheral.cpp">
-      <Filter>renderer\peripheral</Filter>
-    </ClCompile>
     <ClCompile Include="..\mainfolder\RendererUnit.cpp">
       <Filter>mainfolder</Filter>
     </ClCompile>
     <ClCompile Include="..\mainfolder\LifetimeManager.cpp">
       <Filter>mainfolder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\mainfolder\peripheral\RendererPeripheral.cpp">
+      <Filter>mainfolder\peripheral</Filter>
+    </ClCompile>
+    <ClCompile Include="..\mainfolder\peripheral\Peripheral_polygon.cpp">
+      <Filter>mainfolder\peripheral</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

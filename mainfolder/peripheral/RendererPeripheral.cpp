@@ -1,18 +1,18 @@
-#include"CommandAllocator.h"
-#include"CommandList.h"
-#include"SwapChain.h"
-#include"RenderTarget.h"
+#include"../../renderer/peripheral/CommandAllocator.h"
+#include"../../renderer/peripheral/CommandList.h"
+#include"../../renderer/peripheral/SwapChain.h"
+#include"../../renderer/peripheral/RenderTarget.h"
 
-#include"../base/DescriptorHeap.h"
+#include"../../renderer/base/DescriptorHeap.h"
 
-#include"../core/DXGI.h"
-#include"../core/Device.h"
-#include"../core/CommandQueue.h"
-#include"../core/Fence.h"
+#include"../../renderer/core/DXGI.h"
+#include"../../renderer/core/Device.h"
+#include"../../renderer/core/CommandQueue.h"
+#include"../../renderer/core/Fence.h"
 
 #include"../../window/window.h"
 
-#include"../core/RendererCore.h"
+#include"../../renderer/core/RendererCore.h"
 #include"RendererPeripheral.h"
 #include"../../Debug/Debug.h"
 

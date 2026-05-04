@@ -143,6 +143,8 @@
     <ClInclude Include="..\mainfolder\Application.h" />
     <ClInclude Include="..\mainfolder\ID.h" />
     <ClInclude Include="..\mainfolder\LifetimeManager.h" />
+    <ClInclude Include="..\mainfolder\peripheral\Peripheral_polygon.h" />
+    <ClInclude Include="..\mainfolder\peripheral\RendererPeripheral.h" />
     <ClInclude Include="..\mainfolder\RendererManager.h" />
     <ClInclude Include="..\mainfolder\RenderUnit.h" />
     <ClInclude Include="..\mainfolder\windowManager.h" />
@@ -154,7 +156,6 @@
     <ClInclude Include="..\renderer\core\RendererCore.h" />
     <ClInclude Include="..\renderer\peripheral\CommandAllocator.h" />
     <ClInclude Include="..\renderer\peripheral\CommandList.h" />
-    <ClInclude Include="..\renderer\peripheral\RendererPeripheral.h" />
     <ClInclude Include="..\renderer\peripheral\RenderTarget.h" />
     <ClInclude Include="..\renderer\peripheral\SwapChain.h" />
     <ClInclude Include="..\window\Mainwindow.h" />
@@ -168,6 +169,8 @@
     <ClCompile Include="..\mainfolder\Application.cpp" />
     <ClCompile Include="..\mainfolder\LifetimeManager.cpp" />
     <ClCompile Include="..\mainfolder\main.cpp" />
+    <ClCompile Include="..\mainfolder\peripheral\Peripheral_polygon.cpp" />
+    <ClCompile Include="..\mainfolder\peripheral\RendererPeripheral.cpp" />
     <ClCompile Include="..\mainfolder\RendererManager.cpp" />
     <ClCompile Include="..\mainfolder\RendererUnit.cpp" />
     <ClCompile Include="..\mainfolder\windowManager.cpp" />
@@ -179,7 +182,6 @@
     <ClCompile Include="..\renderer\core\RendererCore.cpp" />
     <ClCompile Include="..\renderer\peripheral\CommandAllocator.cpp" />
     <ClCompile Include="..\renderer\peripheral\CommandList.cpp" />
-    <ClCompile Include="..\renderer\peripheral\RendererPeripheral.cpp" />
     <ClCompile Include="..\renderer\peripheral\RenderTarger.cpp" />
     <ClCompile Include="..\renderer\peripheral\SwapChian.cpp" />
     <ClCompile Include="..\window\Mainwindow.cpp" />

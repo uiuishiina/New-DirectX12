@@ -15,8 +15,9 @@ class windowBase;
 struct HWND__;
 using HWND = HWND__*;
 
-class RendererPeripheral final
+class RendererPeripheral
 {
+protected:
 	RendererCore* renderer_core{};
 
 	std::unique_ptr<CommandAllocator>	allocator_{};
@@ -35,9 +36,9 @@ public:
 	RendererPeripheral(const RendererPeripheral&&) = delete;
 	RendererPeripheral& operator=(const RendererPeripheral&&) = delete;
 
-	[[nodiscard]] bool initalize(RendererCore* core, windowBase* window,const int& buffercount);
+	[[nodiscard]] virtual bool initalize(RendererCore* core, windowBase* window,const int& buffercount);
 	
-	void update();
+	virtual void update();
 
-	void end();
+	virtual void end();
 };

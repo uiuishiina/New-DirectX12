@@ -27,7 +27,7 @@ RendererManager::~RendererManager() = default;
 
 [[nodiscard]] bool RendererManager::create_sub_peripheral(windowBase* window, windowID id) {
 
-	auto sub = std::make_unique<RendererPeripheral>();
+	auto sub = std::make_unique<Peripheral_polygon>();
 	if (!sub->initalize(renderer_core.get(), window, 2)) {
 		return false;
 	}
